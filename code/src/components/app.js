@@ -1,15 +1,40 @@
 import React from "react"
+import Product from "./product"
+import "./style.css";
+
 const productsJson = require("./../products.json")
 
-console.log("Products: (Remove this line in app.js!)", productsJson)
 
 class App extends React.Component {
 
   render() {
+
+
     return (
       <div className="App">
-        Find me in src/app.js!
-      </div>
+
+      <header>
+         <h1 id="header">Products</h1>
+       </header>
+
+       <div className="product-container">
+
+              {productsJson.products.map((item) => {
+                return <Product key= {item.id}
+                  name={item.name}
+                  image={item.image}
+                  type={item.type}
+                  substance={item.substance}
+                  size={item.size}
+                  numberInPack={item.numberInPack}
+                  price={item.price}
+                  deliveryTime={item.deliveryTime}
+                  />
+              })}
+</div>
+
+</div>
+
     )
   }
 
